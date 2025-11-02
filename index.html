@@ -6,67 +6,232 @@
     <title>2007180</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- la madre esa d los íconos -->
+    <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #4a6fa5;
+            --secondary: #6b8cbc;
+            --accent: #ff7e5f;
+            --light: #f0f4f8;
+            --dark: #2d3748;
+            --text: #4a5568;
+        }
+        
         body {
-            font-family: Louis George Cafe, sans-serif;
-            background-color: #fff9fb;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            color: var(--text);
+            line-height: 1.6;
         }
+        
         h1, h2, h3 {
-            font-family: Louis George Cafe, sans-serif;
-            color: #d14d8b;
+            font-weight: 700;
+            color: var(--dark);
         }
+        
         .navbar {
-            font-family: Louis George Cafe, sans-serif;
-            background-color: #f8d7e6;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        .nav-link {
-            color: #a52d65 !important;
+        
+        .navbar-brand, .nav-link {
+            color: white !important;
             font-weight: 500;
         }
+        
         .nav-link:hover {
-            color: #d14d8b !important;
-            text-decoration: underline;
+            color: var(--light) !important;
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
         }
+        
         .profile-card {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(209, 77, 139, 0.1);
-            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
             margin-top: 30px;
-        }
-        .btn-pink {
-            background-color: #d14d8b;
-            color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 30px;
+            transition: transform 0.3s ease;
         }
-        .btn-pink:hover {
-            background-color: #a52d65;
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
+            padding: 60px 0;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 40px;
+            text-align: center;
         }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .floating-icon {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            background: var(--light);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
         .img-container {
             text-align: center;
             margin: 30px 0;
         }
+        
         .img-container img {
             max-width: 100%;
             border-radius: 15px;
             border: 5px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .img-container img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+        
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 12px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .quote-icon {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        .btn-primary-custom {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
+        }
+        
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 111, 165, 0.4);
+            color: white;
+        }
+        
+        .interests-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 12px;
+        }
+        
+        .interest-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .interest-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand">
-                <i class="fas fa-heart me-2" style="color: #d14d8b;"></i>
-                <span style="font-family: Louis George Cafe, sans-serif;; color: #a52d65;">Inicio</span>
+                <i class="fas fa-home me-2"></i>
+                <span>Inicio</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -77,54 +242,146 @@
                         <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="actividad1.html"><i class="fas fa-tasks me-1"></i> Actividad 1</a>
+                        <a class="nav-link" href="actividad1.html"><i class="fas fa-heart me-1"></i> Pasatiempos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="actividad2.html"><i class="fas fa-project-diagram me-1"></i> Actividad 2</a>
+                        <a class="nav-link" href="actividad2.html"><i class="fas fa-music me-1"></i> Mi Música</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="actividad3.html"><i class="fas fa-code me-1"></i> Actividad 3</a>
+                        <a class="nav-link" href="actividad3.html"><i class="fas fa-random me-1"></i> Cosas Random</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="actividad4.html"><i class="fas fa-cat me-1"></i> Actividad 4</a>
+                        <a class="nav-link" href="actividad4.html"><i class="fas fa-user-graduate me-1"></i> Mi Perfil</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>¡Hola, soy Mafer!</h1>
+            <p>Estudiante de Ingeniería en Administración de Sistemas</p>
+        </div>
+    </div>
+
     <!-- Contenido principal -->
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="profile-card">
-                    <h1 class="text-center mb-4">¡Hola, soy Mafer! <i class="fas fa-heart" style="color: #f8a5c2;"></i></h1>
+            <div class="col-lg-10">
+                <div class="profile-card position-relative">
+                    <div class="floating-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">21</div>
+                            <div class="stat-label">Años</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">12 Mayo</div>
+                            <div class="stat-label">Cumpleaños</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">FIME</div>
+                            <div class="stat-label">Universidad</div>
+                        </div>
+                    </div>
                     
                     <div class="img-container">
-                        <img src="foto.jpg" alt="Foto de Ximena" class="img-fluid">
+                        <img src="foto.jpg" alt="Foto de Mafer" class="img-fluid">
                     </div>
                     
                     <article class="mt-4">
-                        <p class="lead"><i class="fas fa-quote-left me-2" style="color: #f8a5c2;"></i> Hola, soy Mafer. Tengo 21 años y nací el 12 de mayo del 2004. Actualmente, estoy estudiando Ingeniería en administracion de sistemas, una carrera que me apasiona porque combina mi interés por la tecnología y la resolución de problemas.</p>
-                        <p>Antes de entrar a la universidad, estudié en una preparatoria técnica, donde me gradué como Técnica en Sistemas Computacionales, lo que me dio una base sólida para seguir creciendo en el mundo de la tecnología.</p>
-                        <p>En mi tiempo libre, me gusta leer, ver series y películas, y pasar tiempo con mi familia y amigos. También me gusta aprender cosas nuevas, por lo que siempre estoy buscando cursos y talleres que me permitan adquirir nuevos conocimientos y habilidades.</p>
-                        <p>Soy una persona tranquila y hogareña, disfruto pasar tiempo en casa, pero también me encanta ver deportes. Soy fanática de la lucha libre, el béisbol y el fútbol, y siempre estoy al tanto de los partidos y eventos importantes.</p>
+                        <p class="lead"><i class="fas fa-quote-left quote-icon"></i> Hola, soy <span class="highlight">Mafer</span>. Tengo 21 años y nací el 12 de mayo del 2004. Actualmente, estoy estudiando <span class="highlight">Ingeniería en Administración de Sistemas</span>, una carrera que me apasiona porque combina mi interés por la tecnología y la resolución de problemas.</p>
+                        
+                        <p>Antes de entrar a la universidad, estudié en una preparatoria técnica, donde me gradué como <span class="highlight">Técnica en Sistemas Computacionales</span>, lo que me dio una base sólida para seguir creciendo en el mundo de la tecnología.</p>
+                        
+                        <div class="interests-section">
+                            <h4 class="mb-4" style="color: var(--primary);">Mis intereses</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="interest-item">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Leer</strong>
+                                            <div class="small text-muted">Disfruto de la lectura en mi tiempo libre</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="interest-item">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-film"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Series y películas</strong>
+                                            <div class="small text-muted">Mi forma favorita de entretenimiento</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="interest-item">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Familia y amigos</strong>
+                                            <div class="small text-muted">Valoro el tiempo con mis seres queridos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="interest-item">
+                                        <div class="interest-icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Aprender</strong>
+                                            <div class="small text-muted">Siempre busco cursos y talleres nuevos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>Soy una persona tranquila y hogareña, disfruto pasar tiempo en casa, pero también me encanta ver deportes. Soy fanática de la <span class="highlight">lucha libre, el béisbol y el fútbol</span>, y siempre estoy al tanto de los partidos y eventos importantes.</p>
+                        
                         <p class="mb-4">En el futuro, me gustaría trabajar en una empresa de tecnología, donde pueda seguir aprendiendo y creciendo como profesional.</p>
                     </article>
+                    
+                    <div class="text-center mt-4">
+                        <a href="actividad1.html" class="btn btn-primary-custom">
+                            <i class="fas fa-arrow-right me-2"></i> Conoce más sobre mí
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="mt-5 py-4 text-center" style="background-color: #f8d7e6; color: #a52d65;">
+    <footer>
         <div class="container">
-            <p class="mb-0">© 2025 Mafer - Ingeniería en administracion de sistemas</p>
-            <div class="social-icons mt-3">
-                 <a href="https://www.instagram.com/maryfer.004?igsh=MWF1OXQybnpnMTR2ZA=="><i class="fab fa-instagram"></i></a>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Mafer - Ingeniería en Administración de Sistemas</h5>
+                    <p>Explorando el mundo de la tecnología y la administración</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/maryfer.004?igsh=MWF1OXQybnpnMTR2ZA=="><i class="fab fa-instagram"></i></a>
                         <a href="https://github.com/MaryFer004/Laboratorio6.git"><i class="fab fa-github"></i></a>
                         <a href="https://www.facebook.com/share/1JY9PdMrsC/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
             </div>
+            <hr class="mt-4 mb-3" style="border-color: rgba(255,255,255,0.1);">
+            <p class="text-center mb-0">© 2025 Mafer - Todos los derechos reservados</p>
         </div>
     </footer>
 
